@@ -6,8 +6,7 @@ session_start();
 
 if(!isset($_SESSION['host']))
 {
-	header('location: '.$MyConfig['http_adress']);
-	die();
+	header('location: ../');
 }
 else
 {
@@ -62,7 +61,7 @@ echo '
             <li><a href="./">'.$LANGUAGE['mumble_menu_mumbles'].'</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="https://github.com/dieonar/MyMumb-Panel">'.$LANGUAGE['mumble_menu_github'].'</a></li>
+            <li><a href="https://github.com/florenthemmi/MyMumb-Panel">'.$LANGUAGE['mumble_menu_github'].'</a></li>
             <li><a href="../?logout">'.$LANGUAGE['mumble_menu_logout'].'</a></li>
           </ul>
         </div>

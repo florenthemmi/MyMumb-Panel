@@ -40,6 +40,7 @@
           echo ($color !== '') ? 'style="color:#'. $color .'";' : '';
           echo '></span>';
           echo $user->name .'</span>';
+          echo ' ('. sprintf('%02d:%02d:%02d', ($user->idlesecs/3600), ($user->idlesecs/60%60), $user->idlesecs%60) .')';
         }
         echo (!empty($tree->users)) ? '<br>' : '';
         usort($tree->children, function($a, $b) {

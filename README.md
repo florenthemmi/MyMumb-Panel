@@ -58,10 +58,6 @@ Now open `config.inc.php` and edit it as you want
 	$MyConfig['ICE_Password'] = 'icesecret'; //The Password used in the mumble-server.ini 
 
 	$MyConfig['default_language'] = 'en_EN'; //Change the Language currently supported en_EN fr_FR de_DE
-
-	$MyConfig['use_login_protection'] = false; //Change to true if you want to use a Username and password and not the ICE Secret
-	$MyConfig['Username'] = 'Username';
-	$MyConfig['Password'] = 'MD5 Decrypted Password';
 ```
 
 Three languages are available, English (en_EN), German (de_DE) and French (fr_FR).

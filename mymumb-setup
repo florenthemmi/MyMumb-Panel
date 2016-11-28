@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# Default values
+MYMUMB_HOST=${MYMUMB_HOST:-murmur}
+MYMUMB_PORT=${MYMUMB_PORT:-6502}
+MYMUMB_ICE_SECRET=${MYMUMB_ICE_SECRET:-}
+MYMUMB_LANG=${MYMUMB_LANG:-en_EN}
+
+# Add IcePHP config
+cat  << __ENDCONFIG__ > /etc/php5/mods-available/IcePHP.ini
+extension=IcePHP.so
+include_path = ".:/usr/share/Ice-3.5.1/php/lib:/usr/share/php:/usr/share/pear"
+__ENDCONFIG__
+
+# Generates the config file
+cat  << __ENDCONFIG__ > /app/inc/config.inc.php
+<?php
+\$MyConfig = array();
+\$MyConfig['default_host'] = '${MYMUMB_HOST}';
+\$MyConfig['default_port'] = ${MYMUMB_PORT};
+\$MyConfig['ICE_Password'] = '${MYMUMB_ICE_SECRET}';
+\$MyConfig['default_language'] = '${MYMUMB_LANG}';
+\$MyConfig['MetaConnection'] = "Meta -e 1.0:tcp";
+?>
+__ENDCONFIG__
+
+# Start the Apache2 server
+/run.sh
